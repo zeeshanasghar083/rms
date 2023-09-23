@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Form, Input } from 'antd'
-import { login } from '../network/apiCall'
+import { apiCall } from '../utilities/apiCall'
 
 const Login = () => {
   return (
@@ -82,7 +82,7 @@ const Login = () => {
                 size="large"
                 type="primary"
                 onClick={() => {
-                  login()
+                  apiCall('/user', 'get')
                 }}
               >
                 Sign In
