@@ -5,6 +5,8 @@ import K from './utilities/constants'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
+  app.enableCors()
+
   app.setGlobalPrefix('api')
 
   await app.listen(K.port)

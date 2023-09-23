@@ -1,4 +1,3 @@
-import './App.css'
 import { useSelector } from 'react-redux'
 import ErrorBoundary from './common/errorBoundary/errorBoundary'
 import CustomRouter from './routes/CustomRouter'
