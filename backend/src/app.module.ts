@@ -5,9 +5,10 @@ import typeOrmAsyncConfig from './config/typeorm.config'
 import { authMiddleware } from './middlewears/auth'
 import { AuthModule } from './modules/auth/auth.module'
 import { UserModule } from './modules/user/user.module'
+import { TenantModule } from './modules/tenant/tenant.module';
 
 @Module({
-  imports: [TypeOrmModule.forRootAsync(typeOrmAsyncConfig), UserModule, AuthModule],
+  imports: [TypeOrmModule.forRootAsync(typeOrmAsyncConfig), UserModule, AuthModule, TenantModule],
   controllers: [],
   providers: [],
 })

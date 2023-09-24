@@ -15,7 +15,7 @@ async function bootstrap() {
 bootstrap()
 
 // -for generate module by command
-// nest g res <module Name>
+// nest g res modules/<module Name>
 
 // -generate migration commad
 // npm run mig:gen -- db/migrations/testMigration
