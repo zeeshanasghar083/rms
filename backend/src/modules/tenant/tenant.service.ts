@@ -4,20 +4,24 @@ import { UpdateTenantDto } from './dto/update-tenant.dto'
 import { Tenant } from './entities/tenant.entity'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
+import { UserService } from '../user/user.service'
 
 @Injectable()
 export class TenantService {
   constructor(
     @InjectRepository(Tenant)
     private tenantRepository: Repository<Tenant>,
+    private userService: UserService,
   ) {}
 
   create(createTenantDto: CreateTenantDto) {
     return 'This action adds a new tenant'
   }
 
-  findAll() {
-    return `This action returns all tenant`
+  async findAll() {
+    let user = await this.userService.findOne(1)
+    let tenant = await this.tenantRepository.findAndCountBy({ user })
+    return tenant
   }
 
   findOne(id: number) {
