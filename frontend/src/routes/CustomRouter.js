@@ -3,10 +3,11 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import PageNotFound from '../pages/PageNotFound'
+import { getUser } from '../utilities/generalUtility'
 
 const CustomRouter = () => {
   const ProtectedRoutes = () => {
-    return true ? <Outlet /> : <Navigate to="/login" />
+    return getUser()?.token ? <Outlet /> : <Navigate to="/login" />
   }
 
   return (

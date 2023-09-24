@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card, Form, Input } from 'antd'
 import { apiCall } from '../utilities/apiCall'
+import { setUser } from '../utilities/generalUtility'
 
 const Login = () => {
   return (
@@ -82,7 +83,8 @@ const Login = () => {
                 size="large"
                 type="primary"
                 onClick={() => {
-                  apiCall('/user', 'get')
+                  // apiCall('/user', 'get')
+                  setUser({ id: 1, name: 'temp', email: 'temp@temp.com', token: '12345' })
                 }}
               >
                 Sign In

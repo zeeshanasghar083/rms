@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { getToken } from './generalUtility'
+import { getUser } from './generalUtility'
 import K from './constants'
 import { message } from 'antd'
 
 axios.defaults.baseURL = K.network.baseApiURL
 axios.defaults.timeout = K.network.timeout
-axios.defaults.headers.common = { Authorization: getToken() }
+axios.defaults.headers.common = { Authorization: `bearer ${getUser()?.token}` }
 axios.defaults.headers.common['Content-Type'] = K.network.contentType
 
 export const apiCall = async (path, method, body = {}) => {

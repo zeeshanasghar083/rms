@@ -1,3 +1,11 @@
-export const getToken = () => {
-  return true ? `bearer ${'123456789'}` : null
+export const setUser = (user) => {
+  localStorage.setItem('user', JSON.stringify(user))
+}
+
+export const getUser = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
+
+export const removeUser = () => {
+  return localStorage.removeItem('user')
 }
